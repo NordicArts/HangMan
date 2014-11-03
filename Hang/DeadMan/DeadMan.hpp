@@ -13,8 +13,7 @@ namespace NordicArts {
     // Methods
     public:
         DeadMan();
-
-        std::string life12();
+        
         std::string life11();
         std::string life10();
         std::string life9();
