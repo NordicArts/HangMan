@@ -1,3 +1,4 @@
+
 #include "Player.hpp"
 
 namespace NordicArts{
@@ -13,7 +14,7 @@ namespace NordicArts{
     }
 
     void IncrementPlayerLife(){
-        return PlayerLife--;
+        return Player::PlayerLife--;
     }
 
     int GetPlayerLife(){

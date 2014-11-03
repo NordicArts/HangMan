@@ -1,6 +1,9 @@
 #ifndef Player_H
 #define Player_H
 
+#include <bits/stringfwd.h>
+#include <bits/basic_string.h>
+
 namespace NordicArts {
 
 
