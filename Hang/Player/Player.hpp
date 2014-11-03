@@ -1,8 +1,7 @@
 #ifndef Player_H
 #define Player_H
 
-#include <bits/stringfwd.h>
-#include <bits/basic_string.h>
+#include <Includes.hpp>
 
 namespace NordicArts {
 
@@ -19,7 +18,7 @@ namespace NordicArts {
     private:
     protected:
     public:
-        void Player();
+        Player();
         void SetPlayerName(std::string name);
         std::string GetPlayerName();
         void IncrementPlayerLife();

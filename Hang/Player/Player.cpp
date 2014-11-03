@@ -1,9 +1,8 @@
-
-#include "Player.hpp"
+#include <Includes.hpp>
+#include <Player/Player.hpp>
 
 namespace NordicArts{
-
-    void Player::Player(){};
+    Player::Player(){};
 
     void Player::SetPlayerName(std::string name) {
         m_PlayerName = name;
