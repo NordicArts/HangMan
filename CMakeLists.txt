@@ -26,6 +26,11 @@ include_directories(${Hang}/DeadMan)
 list(APPEND GameHeaders ${Hang}/DeadMan/DeadMan.hpp)
 list(APPEND GameSources ${Hang}/DeadMan/DeadMan.cpp)
 
+#Player
+include_directories(${Hang}/Player)
+list(APPEND GameHeaders ${Hang}/Player/Player.hpp)
+list(APPEND GameSources ${Hang}/Player/Player.cpp)
+
 # SDL
 #find_package(SDL REQUIRED)
 #include_directories(${SDL_INCLUDE_DIR})
