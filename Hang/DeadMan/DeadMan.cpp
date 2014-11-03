@@ -4,29 +4,29 @@ namespace NordicArts {
     DeadMan::DeadMan() {
     }
 
-    std::string DeadMan::life11() {
+    void DeadMan::life11() {
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life10() {
-        std::cout << "| " << std::endl;
-        std::cout << "__" << std::endl;
-    }
-
-    std::string DeadMan::life9() {
-        std::cout << "| " << std::endl;
+    void DeadMan::life10() {
         std::cout << "| " << std::endl;
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life8() {
-        std::cout << "| " << std::endl;
+    void DeadMan::life9() {
         std::cout << "| " << std::endl;
         std::cout << "| " << std::endl;
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life7() {
+    void DeadMan::life8() {
+        std::cout << "| " << std::endl;
+        std::cout << "| " << std::endl;
+        std::cout << "| " << std::endl;
+        std::cout << "__" << std::endl;
+    }
+
+    void DeadMan::life7() {
         std::cout << "--" << std::endl;
         std::cout << "| " << std::endl;
         std::cout << "| " << std::endl;
@@ -34,7 +34,7 @@ namespace NordicArts {
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life6() {
+    void DeadMan::life6() {
         std::cout << "----" << std::endl;
         std::cout << "| " << std::endl;
         std::cout << "| " << std::endl;
@@ -42,7 +42,7 @@ namespace NordicArts {
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life5() {
+    void DeadMan::life5() {
         std::cout << "----" << std::endl;
         std::cout << "|  o" << std::endl;
         std::cout << "| " << std::endl;
@@ -50,7 +50,7 @@ namespace NordicArts {
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life4() {
+    void DeadMan::life4() {
         std::cout << "----" << std::endl;
         std::cout << "|  o" << std::endl;
         std::cout << "|  |" << std::endl;
@@ -58,7 +58,7 @@ namespace NordicArts {
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life3() {
+    void DeadMan::life3() {
         std::cout << "----" << std::endl;
         std::cout << "|  o" << std::endl;
         std::cout << "| -|" << std::endl;
@@ -66,7 +66,7 @@ namespace NordicArts {
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life2() {
+    void DeadMan::life2() {
         std::cout << "----" << std::endl;
         std::cout << "|  o" << std::endl;
         std::cout << "| -|-" << std::endl;
@@ -74,14 +74,14 @@ namespace NordicArts {
         std::cout << "__" << std::endl;
     }
 
-    std::string DeadMan::life1() {
+    void DeadMan::life1() {
         std::cout << "----" << std::endl;
         std::cout << "|  o" << std::endl;
         std::cout << "| -|-" << std::endl;
         std::cout << "| /" << std::endl;
     }
 
-    std::string DeadMan::dead() {
+    void DeadMan::dead() {
         std::cout << "----" << std::endl;
         std::cout << "|  o" << std::endl;
         std::cout << "| -|-" << std::endl;

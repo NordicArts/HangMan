@@ -14,18 +14,18 @@ namespace NordicArts {
     public:
         DeadMan();
         
-        std::string life11();
-        std::string life10();
-        std::string life9();
-        std::string life8();
-        std::string life7();
-        std::string life6();
-        std::string life5();
-        std::string life4();
-        std::string life3();
-        std::string life2();
-        std::string life1();
-        std::string dead();
+        void life11();
+        void life10();
+        void life9();
+        void life8();
+        void life7();
+        void life6();
+        void life5();
+        void life4();
+        void life3();
+        void life2();
+        void life1();
+        void dead();
 
     protected:
     private:
