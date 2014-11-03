@@ -12,6 +12,7 @@
 #include <iomanip>
 #include <math.h>
 #include <ios>
+#include <stdlib.h>
 
 // OSX Includes
 #ifdef __OBJC__
