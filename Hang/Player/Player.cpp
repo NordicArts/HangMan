@@ -13,12 +13,12 @@ namespace NordicArts{
         return m_PlayerName;
     }
 
-    void IncrementPlayerLife(){
-        return Player::PlayerLife--;
+    void Player::IncrementPlayerLife(){
+        m_PlayerLife--;
     }
 
-    int GetPlayerLife(){
-        return PlayerLife;
+    int Player::GetPlayerLife(){
+        return m_PlayerLife;
     }
 
 }
