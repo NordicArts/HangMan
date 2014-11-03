@@ -1,12 +1,14 @@
-#include "Main.hpp"
+#include <Main.hpp>
+#include <DeadMan/DeadMan.hpp>
 
 namespace NordicArts {
   int Main() {
-      std::cout << "----" << std::endl;
-      std::cout << "|  o" << std::endl;
-      std::cout << "| -|-" << std::endl;
-      std::cout << "| / \\" << std::endl;
-      std::cout << "__" << std::endl;
+      DeadMan oDead;
+      DeadMan *pDead = &oDead;
+
+      pDead->dead();
+
+
 
       return EXIT_SUCCESS;
   }

@@ -10,10 +10,21 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11 -m64")
 # Output Dir
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/Build)
 
+# Standard Include
+include_directories(${PROJECT_SOURCE_DIR}/Hang)
+
 # Set Source
 set(Hang ${PROJECT_SOURCE_DIR}/Hang)
 set(GameHeaders ${Hang}/Main.hpp)
 set(GameSources ${Hang}/Main.cpp)
+
+# Includes
+list(APPEND GameHeaders ${Hang}/Includes.hpp)
+
+# DeadMan
+include_directories(${Hang}/DeadMan)
+list(APPEND GameHeaders ${Hang}/DeadMan/DeadMan.hpp)
+list(APPEND GameSources ${Hang}/DeadMan/DeadMan.cpp)
 
 # SDL
 #find_package(SDL REQUIRED)
