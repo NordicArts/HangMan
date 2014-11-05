@@ -89,9 +89,9 @@ namespace NordicArts {
     void DeadMan::life2() {
         cleanIt(100);
         std::cout << "______" << std::endl;
-        std::cout << "|/  |" << std::endl;
-        std::cout << "|   o" << std::endl;
-        std::cout << "|  -|-" << std::endl;
+        std::cout << "|/   |" << std::endl;
+        std::cout << "|    o" << std::endl;
+        std::cout << "|   -|-" << std::endl;
         std::cout << "|" << std::endl;
         std::cout << "|\\_" << std::endl << std::endl;;
     }
