@@ -27,6 +27,11 @@ namespace NordicArts {
         void life1();
         void dead();
 
+        void loopDead();
+        void loop1();
+        void loop2();
+        void loop3();
+
     protected:
     private:
 

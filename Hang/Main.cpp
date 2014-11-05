@@ -19,6 +19,8 @@ namespace NordicArts {
       pDead->life1();
       pDead->dead();
 
+      pDead->loopDead();
+
       return EXIT_SUCCESS;
   }
 };

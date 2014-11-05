@@ -97,4 +97,44 @@ namespace NordicArts {
         std::cout << "|   / \\ " << std::endl;
         std::cout << "|\\_" << std::endl << std::endl;
     }
+
+    void DeadMan::loopDead() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 4; j++) {
+                std::cout << "\x1B[2J\x1B[H";
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                if (j == 1) {
+                    loop1();
+                } else if (j == 3) {
+                    loop3();
+                } else { 
+                    loop2();
+                }
+            }
+        }
+        std::cout << "\x1B[2J\x1B[H";
+        loop2();
+    }
+
+    void DeadMan::loop1() {
+        std::cout << "______" << std::endl;
+        std::cout << "|/   /" << std::endl;
+        std::cout << "|   o "<< std::endl;
+        std::cout << "| -/-" << std::endl;
+        std::cout << "| /|" << std::endl;
+        std::cout << "|\\_" << std::endl << std::endl;
+    }
+
+    void DeadMan::loop2() {
+        dead();
+    }
+
+    void DeadMan::loop3() {
+        std::cout << "______" << std::endl;
+        std::cout << "|/   \\" << std::endl;
+        std::cout << "|      o" << std::endl;
+        std::cout << "|     -\\-" << std::endl;
+        std::cout << "|       |\\" << std::endl;
+        std::cout << "|\\_" << std::endl << std::endl;
+    }
 };

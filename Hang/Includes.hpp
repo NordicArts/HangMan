@@ -27,7 +27,8 @@
 #include <unordered_map> // Unordered Map
 #include <map> // Map
 #include <ios> // Some standard input-output
-
+#include <chrono>
+#include <thread>
 
 // OSX Includes
 #ifdef __OBJC__
