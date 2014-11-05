@@ -13,6 +13,8 @@ namespace NordicArts {
     // Methods
     public:
         DeadMan();
+
+        void cleanIt(int iTime);
         
         void life11();
         void life10();
