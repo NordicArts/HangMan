@@ -1,0 +1,3 @@
+[submodule "Hang/NordicOS"]
+	path = Hang/NordicOS
+	url = git@github.com:NordicArts/NordicOS.git
