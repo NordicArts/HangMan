@@ -9,8 +9,8 @@ namespace NordicArts {
     class Player{
 
     private:
-        int m_PlayerLife = 12;
-        std::string m_PlayerName;
+        int m_iPlayerLife = 12;
+        std::string m_cPlayerName;
 
     protected:
     public:
@@ -19,10 +19,10 @@ namespace NordicArts {
     protected:
     public:
         Player();
-        void SetPlayerName(std::string name);
-        std::string GetPlayerName();
+        void SetPlayerName(std::string cName);
+        std::string GetPlayerName() const;
         void IncrementPlayerLife();
-        int GetPlayerLife();
+        int GetPlayerLife() const;
 
     };
 
