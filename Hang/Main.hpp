@@ -2,6 +2,7 @@
 #define NordicArts_HangMan_Main_H
 
 #include <Includes.hpp>
+#include <NordicOS/OS.hpp>
 
 // Errors
 #ifndef printStuff

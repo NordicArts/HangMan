@@ -35,6 +35,11 @@ list(APPEND GameSources ${Hang}/Player/Player.cpp)
 #find_package(SDL REQUIRED)
 #include_directories(${SDL_INCLUDE_DIR})
 
+# NordicOS
+add_subdirectory(${Hang}/NordicOS)
+include_directories(${Hang}/NordicOS)
+link_directories(${Hang}/NordicOS)
+
 # Compile
 add_executable(HangMan ${GameSources} ${GameHeaders})
 set_target_properties(HangMan PROPERTIES LINKER_LANGUAGE CXX)
@@ -42,3 +47,4 @@ set_target_properties(HangMan PROPERTIES OUTPUT_NAME "Hangman.app")
 
 # Link
 #target_link_libraries(HangMan ${SDL_LIBRARIES})
+target_link_libraries(HangMan NordicOS)

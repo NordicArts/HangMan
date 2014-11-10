@@ -21,6 +21,8 @@ namespace NordicArts {
 
       pDead->loopDead();
 
+      std::cout << std::endl << NordicOS::getBuildNumber() << std::endl;
+
       return EXIT_SUCCESS;
   }
 };
