@@ -1,0 +1,5 @@
+CMakeFiles/*
+Build/*
+cmake_install.cmake
+Makefile
+CMakeCache.txt.idea/*
