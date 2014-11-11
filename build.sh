@@ -33,7 +33,6 @@ if [ -z "$rebuild" ]; then
 fi
 
 # Run the app to make sure its stable
-cd ../
 cd Build
 #cp -r ../GameFiles .
 ./Hangman.app
