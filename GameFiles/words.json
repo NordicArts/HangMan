@@ -1,0 +1,39 @@
+{
+  "words": [
+    {
+      "word": "apple",
+      "letters": 5,
+      "level": 2
+    },
+    {
+      "word": "pair",
+      "letters": 4,
+      "level": 2
+    },
+    {
+      "word": "pie",
+      "letters": 3,
+      "level": 1
+    },
+    {
+      "word": "table",
+      "letters": 5,
+      "level": 3
+    },
+    {
+      "word": "speaker",
+      "letters": 7,
+      "level": 3
+    },
+    {
+      "word": "hippopotamus",
+      "letters": 11,
+      "level": 5
+    },
+    {
+      "word": "printer",
+      "letters": 6,
+      "level": 4
+    }
+  ]
+}

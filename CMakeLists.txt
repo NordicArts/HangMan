@@ -31,6 +31,11 @@ include_directories(${Hang}/Player)
 list(APPEND GameHeaders ${Hang}/Player/Player.hpp)
 list(APPEND GameSources ${Hang}/Player/Player.cpp)
 
+#Word
+include_directories(${Hang}/Words)
+list(APPEND GameHeaders ${Hang}/Words/Words.hpp)
+list(APPEND GameSources ${Hang}/Words/Words.cpp)
+
 # SDL
 #find_package(SDL REQUIRED)
 #include_directories(${SDL_INCLUDE_DIR})
