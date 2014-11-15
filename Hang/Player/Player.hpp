@@ -4,10 +4,8 @@
 #include <Includes.hpp>
 
 namespace NordicArts {
-
-
-    class Player{
-
+    class Player {
+    // Variables
     private:
         int m_iPlayerLife = 12;
         std::string m_cPlayerName;
@@ -15,6 +13,7 @@ namespace NordicArts {
     protected:
     public:
 
+    // Methods
     private:
     protected:
     public:
@@ -25,9 +24,5 @@ namespace NordicArts {
         int GetPlayerLife() const;
 
     };
-
-
-}
-
-
+};
 #endif

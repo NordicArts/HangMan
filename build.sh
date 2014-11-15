@@ -34,5 +34,5 @@ fi
 
 # Run the app to make sure its stable
 cd Build
-#cp -r ../GameFiles .
+cp -r ../GameFiles .
 ./Hangman.app

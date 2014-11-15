@@ -1,5 +1,6 @@
 #include <Main.hpp>
 #include <DeadMan/DeadMan.hpp>
+#include <Words/Words.hpp>
 
 namespace NordicArts {
   int Main() {
@@ -19,7 +20,12 @@ namespace NordicArts {
       pDead->life1();
       pDead->dead();
 
-      pDead->loopDead();
+      Words oWords;
+      Words *pWords = &oWords;
+
+      std::cout << pWords->GetWord() << std::endl;
+
+      //pDead->loopDead();
 
       std::cout << std::endl << NordicOS::getBuildNumber() << std::endl;
 

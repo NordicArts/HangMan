@@ -50,6 +50,10 @@ add_executable(HangMan ${GameSources} ${GameHeaders})
 set_target_properties(HangMan PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(HangMan PROPERTIES OUTPUT_NAME "Hangman.app")
 
+# Boost
+#find_package(Boost COMPONENTS property_tree REQUIRED)
+#include_directories(${Boost_INCLUDES})
+
 # Link
 #target_link_libraries(HangMan ${SDL_LIBRARIES})
 target_link_libraries(HangMan NordicOS)
