@@ -3,10 +3,12 @@
 
 #include <Includes.hpp>
 #include <NordicOS/FileHandler/TextFileReader/TextFileReader.hpp>
+#include <NordicOS/Time/Time.hpp>
 #include <vector>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/foreach.hpp>
+#include <algorithm>
 
 
 namespace NordicArts {
@@ -22,17 +24,21 @@ namespace NordicArts {
 
     private:
          std::vector<WordStruct> m_vWords;
+
+
     protected:
     public:
 
     private:
         void ParseFile();
+        std::vector<WordStruct> GetLevelWords(int iLevel) const;
     protected:
     public:
         Words();
-        int GetLevels();
+        std::vector<int> GetLevels();
+        int GetMaxLevel();
         bool CheckLetter();
-        std::string GetWord();
+        std::string GetWord(int iLevel);
     };
 }
 

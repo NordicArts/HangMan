@@ -23,7 +23,14 @@ namespace NordicArts {
       Words oWords;
       Words *pWords = &oWords;
 
-      std::cout << pWords->GetWord() << std::endl;
+      for(auto it: pWords->GetLevels()){
+
+          std::cout << it << std::endl;
+      }
+
+      for (int i = 0; i < 5; i++) {
+          pWords->GetWord(3);
+      }
 
       //pDead->loopDead();
 

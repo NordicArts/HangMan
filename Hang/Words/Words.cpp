@@ -6,20 +6,67 @@ namespace NordicArts {
         ParseFile();
     }
 
-    int Words::GetLevels() {
-        return 0;
+    int Words::GetMaxLevel() {
+        int i=1;
+        for(auto it: m_vWords){
+            if(it.iLevel > i){
+                i=it.iLevel;
+                continue;
+            }
+        }
+        return i;
+    }
+
+
+    std::vector<WordStruct> Words::GetLevelWords(int iLevel) const {
+        std::vector<WordStruct> vLevelWords;
+        for(auto it: m_vWords){
+            if(it.iLevel == iLevel) {
+                vLevelWords.insert(vLevelWords.begin(), it);
+            }
+        }
+
+        return vLevelWords;
+
+    }
+
+    std::vector<int> Words::GetLevels(){
+        std::vector<int> vLevels;
+        bool LevelExists;
+
+        for(auto it: m_vWords){
+            LevelExists = false;
+            for(auto it2: vLevels){
+                if(it.iLevel == it2){
+                    LevelExists = true;
+                    break;
+                }
+            }
+            if(!LevelExists) {
+                vLevels.insert(vLevels.begin(), it.iLevel);
+            }
+        }
+
+        sort(vLevels.begin(),vLevels.end());
+        return vLevels;
     }
 
     bool Words::CheckLetter() {
         return false;
     }
 
-    std::string Words::GetWord() {
+    std::string Words::GetWord(int iLevel) {
         std::string cReturn;
+        std::vector<WordStruct> vLevelWords;
+        vLevelWords = GetLevelWords(iLevel);
+        int iRand;
+        NordicOS::Time oTime;
+        NordicOS::Time *pTime = &oTime;
+        srand(pTime->getNanoSeconds());
+        iRand = (rand() % vLevelWords.size());
 
-        for (std::vector<WordStruct>::iterator it = m_vWords.begin(); it != m_vWords.end(); it++) {
-            cReturn = it->cWord;
-        }
+        printIt(iRand);
+
 
         return cReturn;
     }
@@ -27,11 +74,16 @@ namespace NordicArts {
     void Words::ParseFile() {
         std::string cFileName = "./GameFiles/words.json";
 
+
         NordicOS::TextFileReader pFile(cFileName, true);
         std::string cFilePath  = pFile.getFilePath();
         if (NordicOS::fileExists(cFilePath)) {
             boost::property_tree::ptree pTree;
+
             boost::property_tree::read_json(cFilePath, pTree);
+
+
+
             BOOST_FOREACH(boost::property_tree::ptree::value_type &wordObj, pTree.get_child("words")) {
                 std::string cWord   = wordObj.second.get<std::string>("word");
                 int iLevel          = wordObj.second.get<int>("level");
