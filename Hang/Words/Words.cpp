@@ -58,16 +58,21 @@ namespace NordicArts {
     std::string Words::GetWord(int iLevel) {
         std::string cReturn;
         std::vector<WordStruct> vLevelWords;
+
         vLevelWords = GetLevelWords(iLevel);
         int iRand;
         NordicOS::Time oTime;
         NordicOS::Time *pTime = &oTime;
         srand(pTime->getNanoSeconds());
         iRand = (rand() % vLevelWords.size());
-
-        printIt(iRand);
-
-
+        int i = 0;
+        for(auto it: vLevelWords){
+            if (i == iRand){
+                cReturn = it.cWord;
+                break;
+            }
+            i++;
+        }
         return cReturn;
     }
 
