@@ -12,19 +12,22 @@
 
 
 namespace NordicArts {
-
     struct WordStruct {
         int iLevel;
         int iLetters;
+
         std::string cWord;
-        WordStruct(int letters, int level, std::string word) : iLetters(letters), iLevel(level), cWord(word){}
+
+        WordStruct(int letters, int level, std::string word) : iLetters(letters), iLevel(level), cWord(word) { }
+        WordStruct() {}
     };
 
     class Words {
 
     private:
-         std::vector<WordStruct> m_vWords;
+        std::vector<WordStruct> m_vWords;
 
+        WordStruct m_sPickedWord;
 
     protected:
     public:
@@ -35,10 +38,16 @@ namespace NordicArts {
     protected:
     public:
         Words();
+        ~Words();
+
         std::vector<int> GetLevels();
+
         int GetMaxLevel();
-        bool CheckLetter();
-        std::string GetWord(int iLevel);
+
+        bool CheckLetter(std::string cLetter);
+
+        WordStruct GetWord(int iLevel);
+        std::string GetPickedWord() const;
     };
 }
 

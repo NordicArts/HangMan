@@ -2,14 +2,19 @@
 
 namespace NordicArts {
     Words::Words() {
+        m_sPickedWord = WordStruct();
+
         ParseFile();
+    }
+
+    Words::~Words() {
     }
 
     int Words::GetMaxLevel() {
         int i=1;
         for(auto it: m_vWords){
             if(it.iLevel > i){
-                i=it.iLevel;
+                i = it.iLevel;
                 continue;
             }
         }
@@ -50,11 +55,11 @@ namespace NordicArts {
         return vLevels;
     }
 
-    bool Words::CheckLetter() {
+    bool Words::CheckLetter(std::string cLetter) {
         return false;
     }
 
-    std::string Words::GetWord(int iLevel) {
+    WordStruct Words::GetWord(int iLevel) {
         std::string cReturn;
         std::vector<WordStruct> vLevelWords;
 
@@ -64,9 +69,14 @@ namespace NordicArts {
         NordicOS::Time *pTime = &oTime;
         srand(pTime->getNanoSeconds());
         iRand = (rand() % vLevelWords.size());
-        
 
-        return vLevelWords.at(iRand).cWord;
+        m_sPickedWord = vLevelWords.at(iRand);
+
+        return m_sPickedWord;
+    }
+
+    std::string Words::GetPickedWord() const {
+        return m_sPickedWord.cWord;
     }
 
     void Words::ParseFile() {
@@ -77,10 +87,7 @@ namespace NordicArts {
         std::string cFilePath  = pFile.getFilePath();
         if (NordicOS::fileExists(cFilePath)) {
             boost::property_tree::ptree pTree;
-
             boost::property_tree::read_json(cFilePath, pTree);
-
-
 
             BOOST_FOREACH(boost::property_tree::ptree::value_type &wordObj, pTree.get_child("words")) {
                 std::string cWord   = wordObj.second.get<std::string>("word");
