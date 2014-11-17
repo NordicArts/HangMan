@@ -29,7 +29,7 @@ namespace NordicArts {
       }
 
       for (int i = 0; i < 5; i++) {
-          pWords->GetWord(3);
+          std::cout << pWords->GetWord(3) << std::endl;
       }
 
       //pDead->loopDead();

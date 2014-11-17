@@ -1,4 +1,3 @@
-
 #include "Words.hpp"
 
 namespace NordicArts {
@@ -58,17 +57,16 @@ namespace NordicArts {
     std::string Words::GetWord(int iLevel) {
         std::string cReturn;
         std::vector<WordStruct> vLevelWords;
+
         vLevelWords = GetLevelWords(iLevel);
         int iRand;
         NordicOS::Time oTime;
         NordicOS::Time *pTime = &oTime;
         srand(pTime->getNanoSeconds());
         iRand = (rand() % vLevelWords.size());
+        int i = 0;
 
-        printIt(iRand);
-
-
-        return cReturn;
+        return vLevelWords.at(i).cWord;
     }
 
     void Words::ParseFile() {
