@@ -64,9 +64,9 @@ namespace NordicArts {
         NordicOS::Time *pTime = &oTime;
         srand(pTime->getNanoSeconds());
         iRand = (rand() % vLevelWords.size());
-        int i = 0;
+        
 
-        return vLevelWords.at(i).cWord;
+        return vLevelWords.at(iRand).cWord;
     }
 
     void Words::ParseFile() {
