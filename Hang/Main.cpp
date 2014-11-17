@@ -32,6 +32,13 @@ namespace NordicArts {
           std::cout << pWords->GetWord(3).cWord << std::endl;
       }
 
+      if (pWords->CheckLetter("A")) { std::cout << "A exists" << std::endl; }
+      if (pWords->CheckLetter("Z")) {
+          std::cout << "Z exists" << std::endl;
+      } else {
+          std::cout << "Z doesn't exist" << std::endl;
+      }
+
       //pDead->loopDead();
 
       std::cout << std::endl << NordicOS::getBuildNumber() << std::endl;

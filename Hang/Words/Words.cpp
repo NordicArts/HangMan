@@ -56,7 +56,35 @@ namespace NordicArts {
     }
 
     bool Words::CheckLetter(std::string cLetter) {
-        return false;
+        std::string cWord = m_sPickedWord.cWord;
+
+        bool bReturn = false;
+
+        for (int i = 0; i < cWord.length(); i++) {
+            const char cChar = toupper(cWord.at(i));
+
+            if (cChar == *cLetter.c_str()) {
+                bReturn = true;
+            }
+        }
+
+        return bReturn;
+    }
+
+    std::vector<int> Words::GetCorrectLetters(std::string cLetter) {
+        std::vector<int> vLetters;
+
+        std::string cWord = m_sPickedWord.cWord;
+
+        for (int i = 0; i < cWord.length(); i++) {
+            const char cChar = toupper(cWord.at(i));
+
+            if (cChar == *cLetter.c_str()) {
+                vLetters.insert(vLetters.begin(), i);
+            }
+        }
+
+        return vLetters;
     }
 
     WordStruct Words::GetWord(int iLevel) {

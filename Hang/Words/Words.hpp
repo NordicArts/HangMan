@@ -9,7 +9,7 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/foreach.hpp>
 #include <algorithm>
-
+#include <boost/locale.hpp>
 
 namespace NordicArts {
     struct WordStruct {
@@ -41,6 +41,7 @@ namespace NordicArts {
         ~Words();
 
         std::vector<int> GetLevels();
+        std::vector<int> GetCorrectLetters(std::string cLetter);
 
         int GetMaxLevel();
 
