@@ -4,7 +4,7 @@ namespace NordicArts {
     Words::Words() {
         m_sPickedWord = WordStruct();
 
-        ParseFile();
+        parseFile();
     }
 
     Words::~Words() {
