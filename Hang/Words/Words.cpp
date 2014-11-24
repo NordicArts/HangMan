@@ -65,7 +65,7 @@ namespace NordicArts {
         bool bReturn = false;
 
         for (int i = 0; i < cWord.length(); i++) {
-            const char cChar = toupper(cWord.at(i));
+            const char cChar = ::toupper(cWord.at(i));
 
             if (cChar == *cLetter.c_str()) {
                 bReturn = true;
@@ -81,7 +81,7 @@ namespace NordicArts {
         std::string cWord = m_sPickedWord.cWord;
 
         for (int i = 0; i < cWord.length(); i++) {
-            const char cChar = toupper(cWord.at(i));
+            const char cChar = ::toupper(cWord.at(i));
 
             if (cChar == *cLetter.c_str()) {
                 vLetters.insert(vLetters.begin(), i);
