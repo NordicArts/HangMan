@@ -74,10 +74,11 @@ namespace NordicArts {
         
         bool bReturn = false;
 
-        for (auto it = cWord.begin(); it != cWord.end(); ++it) {
-            //if (cLetter == *it) {
-            //    bReturn = true;
-            //}
+        for(std::string::size_type i = 0; i < cWord.size(); ++i) {
+            const char cWordLetter = cWord[i];
+            if (cWordLetter == *cLetter.c_str()) {
+                bReturn = true;
+            }
         }
 
         return bReturn;
