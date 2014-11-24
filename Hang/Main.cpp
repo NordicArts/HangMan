@@ -23,17 +23,17 @@ namespace NordicArts {
       Words oWords;
       Words *pWords = &oWords;
 
-      for(auto it: pWords->GetLevels()){
+      for(auto it: pWords->getLevels()){
 
           std::cout << it << std::endl;
       }
 
       for (int i = 0; i < 5; i++) {
-          std::cout << pWords->GetWord(3).cWord << std::endl;
+          std::cout << pWords->getWord(3).cWord << std::endl;
       }
 
-      if (pWords->CheckLetter("A")) { std::cout << "A exists" << std::endl; }
-      if (pWords->CheckLetter("Z")) {
+      if (pWords->checkLetter("A")) { std::cout << "A exists" << std::endl; }
+      if (pWords->checkLetter("Z")) {
           std::cout << "Z exists" << std::endl;
       } else {
           std::cout << "Z doesn't exist" << std::endl;
