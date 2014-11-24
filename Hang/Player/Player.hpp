@@ -9,20 +9,20 @@ namespace NordicArts {
     public:
     protected:
     private:
-        int m_iPlayerLife = 12;
+        int m_iLife = 12;
 
-        std::string m_cPlayerName;
+        std::string m_cName;
 
     // Methods
     public:
         Player();
 
-        void setPlayerName(std::string cName);
-        void incrementPlayerLife();
+        void setName(std::string cName);
+        void incrementLife();
 
-        std::string getPlayerName() const;
+        std::string getName() const;
 
-        int getPlayerLife() const;
+        int getLife() const;
 
     protected:
     private:

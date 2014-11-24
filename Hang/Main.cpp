@@ -1,9 +1,55 @@
 #include <Main.hpp>
 #include <DeadMan/DeadMan.hpp>
 #include <Words/Words.hpp>
+#include <Player/Player.hpp>
+#include <Guesses/Guesses.hpp>
 
 namespace NordicArts {
-  int Main() {
+    int Main() {
+        // Word
+        WordStruct sWord;
+
+        // Words Class
+        Words  oWords;
+        Words *pWords = &oWords;
+
+        // Player Class
+        Player  oPlayer;
+        Player *pPlayer = &oPlayer;
+
+        // Get the Player Name
+        std::cout << "Enter Name:" << std::endl;
+        std::string cInput;
+        getline(std::cin, cInput);
+        pPlayer->setName(cInput);
+
+        // Choose Level
+        std::cout << "Choose Level:" << std::endl;
+        for (auto it : pWords->getLevels()) {
+            std::cout << it << ", ";
+        }
+        std::cout << std::endl;
+        getline(std::cin, cInput);
+        int iLevel;
+        iLevel = atoi(cInput.c_str());
+        sWord = pWords->getWord(iLevel);
+
+        // Guesses
+        Guesses  oGuess(sWord);
+        Guesses *pGuess = &oGuess;
+        
+        // Do Guess
+        std::cout << "Guess Letter:" << std::endl;
+        getline(std::cin, cInput);
+        if (pGuess->doGuess(cInput)) {
+            std::cout << "Yey" << std::endl;
+        } else {
+            std::cout << "Nope" << std::endl;
+        }
+         
+
+
+/*
       DeadMan oDead;
       DeadMan *pDead = &oDead;
 
@@ -19,18 +65,7 @@ namespace NordicArts {
       pDead->life2();
       pDead->life1();
       pDead->dead();
-
-      Words oWords;
-      Words *pWords = &oWords;
-
-      for(auto it: pWords->getLevels()){
-
-          std::cout << it << std::endl;
-      }
-
-      for (int i = 0; i < 5; i++) {
-          std::cout << pWords->getWord(3).cWord << std::endl;
-      }
+*/
 
       if (pWords->checkLetter("A")) { std::cout << "A exists" << std::endl; }
       if (pWords->checkLetter("Z")) {
@@ -42,6 +77,15 @@ namespace NordicArts {
       //pDead->loopDead();
 
       std::cout << std::endl << NordicOS::getBuildNumber() << std::endl;
+
+        // Show Player Name
+        //printIt(pPlayer->getName());
+
+        // Get Word
+        //printIt(sWord.cWord);
+
+        // Letters
+        //printIt(sWord.iLetters);
 
       return EXIT_SUCCESS;
   }

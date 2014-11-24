@@ -50,6 +50,8 @@ namespace NordicArts {
     
         std::string getPickedWord() const;
 
+        void setWord(WordStruct sWord);
+
     protected:
     private:
         void parseFile();

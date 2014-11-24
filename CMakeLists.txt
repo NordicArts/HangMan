@@ -42,6 +42,11 @@ include_directories(${Hang}/Words)
 list(APPEND GameHeaders ${Hang}/Words/Words.hpp)
 list(APPEND GameSources ${Hang}/Words/Words.cpp)
 
+# Guesses
+include_directories(${Hang}/Guesses)
+list(APPEND GameHeaders ${Hang}/Guesses/Guesses.hpp)
+list(APPEND GameSources ${Hang}/Guesses/Guesses.cpp)
+
 # SDL
 #find_package(SDL REQUIRED)
 #include_directories(${SDL_INCLUDE_DIR})

@@ -1,4 +1,5 @@
-#include "Words.hpp"
+#include <Words/Words.hpp>
+#include <NordicOS/String/String.hpp>
 
 namespace NordicArts {
     Words::Words() {
@@ -34,6 +35,10 @@ namespace NordicArts {
 
     }
 
+    void Words::setWord(WordStruct sWord) {
+        m_sPickedWord = sWord;
+    }
+
     std::vector<int> Words::getLevels(){
         std::vector<int> vLevels;
         bool bLevelExists;
@@ -60,16 +65,18 @@ namespace NordicArts {
     }
 
     bool Words::checkLetter(std::string cLetter) {
-        std::string cWord = m_sPickedWord.cWord;
-
+        std::string cWord = NordicOS::toUpper(m_sPickedWord.cWord);
+        cLetter           = NordicOS::toUpper(cLetter);
+        
         bool bReturn = false;
 
-        for (int i = 0; i < cWord.length(); i++) {
-            const char cChar = ::toupper(cWord.at(i));
+        for (auto it = cWord.begin(); it != cWord.end(); ++it) {
+            printIt(cLetter);
+            printIt(*it);
 
-            if (cChar == *cLetter.c_str()) {
-                bReturn = true;
-            }
+            //if (cLetter == *it) {
+            //    bReturn = true;
+            //}
         }
 
         return bReturn;
@@ -78,12 +85,14 @@ namespace NordicArts {
     std::vector<int> Words::getCorrectLetters(std::string cLetter) {
         std::vector<int> vLetters;
 
-        std::string cWord = m_sPickedWord.cWord;
+        std::string cWord       = NordicOS::toUpper(m_sPickedWord.cWord);
+        cLetter                 = NordicOS::toUpper(cLetter);
+        std::string cGetLetter;
 
         for (int i = 0; i < cWord.length(); i++) {
-            const char cChar = ::toupper(cWord.at(i));
+            cGetLetter = cWord.at(i);
 
-            if (cChar == *cLetter.c_str()) {
+            if (cGetLetter == cLetter) {
                 vLetters.insert(vLetters.begin(), i);
             }
         }
@@ -128,7 +137,7 @@ namespace NordicArts {
                 int iLevel          = wordObj.second.get<int>("level");
                 int iLetters        = wordObj.second.get<int>("letters");
 
-                WordStruct sWords   = WordStruct(iLetters, iLevel, cWord);
+                WordStruct sWords   = WordStruct(iLetters, iLevel, NordicOS::toUpper(cWord));
                 m_vWords.insert(m_vWords.begin(), sWords);
             }
         }
