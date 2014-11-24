@@ -14,14 +14,12 @@ namespace NordicArts {
     private:
         std::vector<std::string> m_vLettersGuessed;
         std::vector<std::string> m_vCorrectLetters;
-
-        WordStruct m_sWord;
         
-        Words      *m_pWords;
+        Words      *m_pWords = nullptr;
 
     // Methods
     public:
-        Guesses(WordStruct sWord);
+        Guesses(Words *pWord);
         ~Guesses();
 
         bool doGuess(std::string cLetter);

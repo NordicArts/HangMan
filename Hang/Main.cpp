@@ -35,7 +35,7 @@ namespace NordicArts {
         sWord = pWords->getWord(iLevel);
 
         // Guesses
-        Guesses  oGuess(sWord);
+        Guesses  oGuess(pWords);
         Guesses *pGuess = &oGuess;
         
         // Do Guess
@@ -46,8 +46,6 @@ namespace NordicArts {
         } else {
             std::cout << "Nope" << std::endl;
         }
-         
-
 
 /*
       DeadMan oDead;

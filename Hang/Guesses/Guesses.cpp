@@ -2,14 +2,11 @@
 #include <NordicOS/String/String.hpp>
 
 namespace NordicArts {
-    Guesses::Guesses(WordStruct sWord) : m_sWord(sWord) {
-        Words  oWords;
-        m_pWords = &oWords;
-        
-        m_pWords->setWord(sWord);
+    Guesses::Guesses(Words *pWords) : m_pWords(pWords) {
     }
 
     Guesses::~Guesses() {
+        m_pWords = nullptr;
     }
 
     bool Guesses::doGuess(std::string cLetter) {

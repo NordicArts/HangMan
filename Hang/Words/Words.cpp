@@ -67,13 +67,14 @@ namespace NordicArts {
     bool Words::checkLetter(std::string cLetter) {
         std::string cWord = NordicOS::toUpper(m_sPickedWord.cWord);
         cLetter           = NordicOS::toUpper(cLetter);
+
+        printIt(m_sPickedWord.cWord);
+        printIt(cWord);
+        printIt(cLetter);
         
         bool bReturn = false;
 
         for (auto it = cWord.begin(); it != cWord.end(); ++it) {
-            printIt(cLetter);
-            printIt(*it);
-
             //if (cLetter == *it) {
             //    bReturn = true;
             //}
