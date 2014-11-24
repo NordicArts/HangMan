@@ -1,5 +1,5 @@
-#ifndef Words_H
-#define Words_H
+#ifndef NordicArts_HangMan_Words_H
+#define NordicArts_HangMan_Words_H
 
 #include <Includes.hpp>
 #include <NordicOS/FileHandler/TextFileReader/TextFileReader.hpp>
@@ -17,38 +17,44 @@ namespace NordicArts {
         int iLetters;
 
         std::string cWord;
+        
+        std::vector<std::string> cLetters;
 
-        WordStruct(int letters, int level, std::string word) : iLetters(letters), iLevel(level), cWord(word) { }
         WordStruct() {}
+        WordStruct(int letters, int level, std::string word) : iLetters(letters), iLevel(level), cWord(word) {}
     };
 
     class Words {
 
+    // Variables
+    public:
+    protected:
     private:
         std::vector<WordStruct> m_vWords;
 
         WordStruct m_sPickedWord;
 
-    protected:
-    public:
-
-    private:
-        void ParseFile();
-        std::vector<WordStruct> GetLevelWords(int iLevel) const;
-    protected:
+    // Methods
     public:
         Words();
         ~Words();
 
-        std::vector<int> GetLevels();
-        std::vector<int> GetCorrectLetters(std::string cLetter);
+        std::vector<int> getLevels();
+        std::vector<int> getCorrectLetters(std::string cLetter);
 
-        int GetMaxLevel();
+        int getMaxLevel();
 
-        bool CheckLetter(std::string cLetter);
+        bool checkLetter(std::string cLetter);
 
-        WordStruct GetWord(int iLevel);
-        std::string GetPickedWord() const;
+        WordStruct getWord(int iLevel);
+    
+        std::string getPickedWord() const;
+
+    protected:
+    private:
+        void parseFile();
+
+        std::vector<WordStruct> getLevelWords(int iLevel) const;
     };
 }
 

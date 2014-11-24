@@ -10,7 +10,7 @@ namespace NordicArts {
     Words::~Words() {
     }
 
-    int Words::GetMaxLevel() {
+    int Words::getMaxLevel() {
         int i=1;
         for(auto it: m_vWords){
             if(it.iLevel > i){
@@ -22,7 +22,7 @@ namespace NordicArts {
     }
 
 
-    std::vector<WordStruct> Words::GetLevelWords(int iLevel) const {
+    std::vector<WordStruct> Words::getLevelWords(int iLevel) const {
         std::vector<WordStruct> vLevelWords;
         for(auto it: m_vWords){
             if(it.iLevel == iLevel) {
@@ -34,28 +34,32 @@ namespace NordicArts {
 
     }
 
-    std::vector<int> Words::GetLevels(){
+    std::vector<int> Words::getLevels(){
         std::vector<int> vLevels;
-        bool LevelExists;
+        bool bLevelExists;
 
         for(auto it: m_vWords){
-            LevelExists = false;
+            bLevelExists = false;
+
             for(auto it2: vLevels){
                 if(it.iLevel == it2){
-                    LevelExists = true;
+                    bLevelExists = true;
+
                     break;
                 }
             }
-            if(!LevelExists) {
+
+            if (!bLevelExists) {
                 vLevels.insert(vLevels.begin(), it.iLevel);
             }
         }
 
         sort(vLevels.begin(),vLevels.end());
+
         return vLevels;
     }
 
-    bool Words::CheckLetter(std::string cLetter) {
+    bool Words::checkLetter(std::string cLetter) {
         std::string cWord = m_sPickedWord.cWord;
 
         bool bReturn = false;
@@ -71,7 +75,7 @@ namespace NordicArts {
         return bReturn;
     }
 
-    std::vector<int> Words::GetCorrectLetters(std::string cLetter) {
+    std::vector<int> Words::getCorrectLetters(std::string cLetter) {
         std::vector<int> vLetters;
 
         std::string cWord = m_sPickedWord.cWord;
@@ -87,11 +91,13 @@ namespace NordicArts {
         return vLetters;
     }
 
-    WordStruct Words::GetWord(int iLevel) {
+    WordStruct Words::getWord(int iLevel) {
         std::string cReturn;
+
         std::vector<WordStruct> vLevelWords;
 
-        vLevelWords = GetLevelWords(iLevel);
+        vLevelWords = getLevelWords(iLevel);
+
         int iRand;
         NordicOS::Time oTime;
         NordicOS::Time *pTime = &oTime;
@@ -103,11 +109,11 @@ namespace NordicArts {
         return m_sPickedWord;
     }
 
-    std::string Words::GetPickedWord() const {
+    std::string Words::getPickedWord() const {
         return m_sPickedWord.cWord;
     }
 
-    void Words::ParseFile() {
+    void Words::parseFile() {
         std::string cFileName = "./GameFiles/words.json";
 
 

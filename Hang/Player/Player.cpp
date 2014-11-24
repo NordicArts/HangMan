@@ -4,19 +4,19 @@
 namespace NordicArts{
     Player::Player(){};
 
-    void Player::SetPlayerName(std::string cName) {
+    void Player::setPlayerName(std::string cName) {
         m_cPlayerName = cName;
     }
 
-    std::string Player::GetPlayerName() const {
+    std::string Player::getPlayerName() const {
         return m_cPlayerName;
     }
 
-    void Player::IncrementPlayerLife(){
+    void Player::incrementPlayerLife(){
         m_iPlayerLife--;
     }
 
-    int Player::GetPlayerLife() const {
+    int Player::getPlayerLife() const {
         return m_iPlayerLife;
     }
 

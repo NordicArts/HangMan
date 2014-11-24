@@ -1,28 +1,31 @@
-#ifndef Player_H
-#define Player_H
+#ifndef NordicArts_HangMan_Player_H
+#define NordicArts_HangMan_Player_H
 
 #include <Includes.hpp>
 
 namespace NordicArts {
     class Player {
     // Variables
+    public:
+    protected:
     private:
         int m_iPlayerLife = 12;
+
         std::string m_cPlayerName;
 
-    protected:
-    public:
-
     // Methods
-    private:
-    protected:
     public:
         Player();
-        void SetPlayerName(std::string cName);
-        std::string GetPlayerName() const;
-        void IncrementPlayerLife();
-        int GetPlayerLife() const;
 
+        void setPlayerName(std::string cName);
+        void incrementPlayerLife();
+
+        std::string getPlayerName() const;
+
+        int getPlayerLife() const;
+
+    protected:
+    private:
     };
 };
 #endif
