@@ -12,12 +12,25 @@ namespace NordicArts{
         return m_cName;
     }
 
-    void Player::incrementLife(){
+    void Player::decrementLife() {
         m_iLife--;
+    }
+
+    void Player::incrementLife(){
+        m_iLife++;
     }
 
     int Player::getLife() const {
         return m_iLife;
     }
 
+    bool Player::alive() const {
+        bool bReturn = false;
+
+        if (m_iLife >= 1) {
+            bReturn = true;
+        }
+
+        return bReturn;
+    }
 }

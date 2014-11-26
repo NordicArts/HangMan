@@ -14,6 +14,8 @@ namespace NordicArts {
     public:
         DeadMan();
 
+        void doLife(int iWrongGuesses);
+
         void cleanIt(int iTime);
         
         void life11();

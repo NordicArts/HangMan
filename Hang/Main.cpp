@@ -37,15 +37,37 @@ namespace NordicArts {
         // Guesses
         Guesses  oGuess(pWords);
         Guesses *pGuess = &oGuess;
+
+        // DeadMan
+        DeadMan  oDead;
+        DeadMan *pDead = &oDead;
         
-        // Do Guess
-        std::cout << "Guess Letter:" << std::endl;
-        getline(std::cin, cInput);
-        if (pGuess->doGuess(cInput)) {
-            std::cout << "Yey" << std::endl;
-        } else {
-            std::cout << "Nope" << std::endl;
+        while (true) {
+            // Do Guess
+            std::cout << "Guess Letter:" << std::endl;
+            getline(std::cin, cInput);
+            if (pGuess->doGuess(cInput)) {
+                std::cout << "Yey" << std::endl;
+            } else {
+                pPlayer->decrementLife();
+                std::cout << "Nope" << std::endl;
+            }
+
+            // Get the Wrong Guesses
+            pDead->doLife(pGuess->wrongGuesses());
+
+            // Run out of lives
+            if (!pPlayer->alive()) {
+                break;
+            }
+
+            // Completed the word
+            if (pGuess->completedWord()) {
+                break;
+            }
         }
+
+        printIt(pGuess->wrongGuesses());
 
 /*
       DeadMan oDead;

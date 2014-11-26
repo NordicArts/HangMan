@@ -3,6 +3,62 @@
 namespace NordicArts {
     DeadMan::DeadMan() {
     }
+    
+    void DeadMan::doLife(int iWrongGuesses) {
+        switch (iWrongGuesses) {
+            case 1:
+                life11();
+                break;
+
+            case 2:
+                life10();
+                break;
+
+            case 3:
+                life9();
+                break;
+
+            case 4:
+                life8();
+                break;
+
+            case 5:
+                life7();
+                break;
+
+            case 6:
+                life6();
+                break;
+
+            case 7:
+                life5();
+                break;
+
+            case 8:
+                life4();
+                break;
+
+            case 9:
+                life3();
+                break;
+
+            case 10:
+                life2();
+                break;
+            
+            case 11:
+                life1();
+                break;
+
+            case 12:
+                loopDead();
+                break;
+
+            case 0:
+            default:
+                break;
+        }
+    }
 
     void DeadMan::cleanIt(int iTime) {
         std::cout << "\x1B[2J\x1B[H";
@@ -116,7 +172,7 @@ namespace NordicArts {
     }
 
     void DeadMan::loopDead() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
                 cleanIt(500);
                 if (j == 1) {

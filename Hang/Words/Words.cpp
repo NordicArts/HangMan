@@ -22,6 +22,9 @@ namespace NordicArts {
         return i;
     }
 
+    int Words::wordLength() const {
+        return m_sPickedWord.iLetters;
+    }
 
     std::vector<WordStruct> Words::getLevelWords(int iLevel) const {
         std::vector<WordStruct> vLevelWords;

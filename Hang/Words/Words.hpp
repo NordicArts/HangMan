@@ -43,6 +43,7 @@ namespace NordicArts {
         std::vector<int> getCorrectLetters(std::string cLetter);
 
         int getMaxLevel();
+        int wordLength() const;
 
         bool checkLetter(std::string cLetter);
 

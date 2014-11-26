@@ -19,10 +19,13 @@ namespace NordicArts {
 
         void setName(std::string cName);
         void incrementLife();
+        void decrementLife();
 
         std::string getName() const;
 
         int getLife() const;
+
+        bool alive() const;
 
     protected:
     private:

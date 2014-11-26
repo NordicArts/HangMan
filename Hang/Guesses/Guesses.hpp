@@ -8,8 +8,6 @@ namespace NordicArts {
     class Guesses {
     // Variables
     public:
-        
-
     protected:
     private:
         std::vector<std::string> m_vLettersGuessed;
@@ -17,12 +15,17 @@ namespace NordicArts {
         
         Words      *m_pWords = nullptr;
 
+        int m_iWrongGuesses;
+
     // Methods
     public:
         Guesses(Words *pWord);
         ~Guesses();
 
         bool doGuess(std::string cLetter);
+        bool completedWord() const;
+
+        int wrongGuesses() const;
 
     protected:
     private:

@@ -2,7 +2,7 @@
 #include <NordicOS/String/String.hpp>
 
 namespace NordicArts {
-    Guesses::Guesses(Words *pWords) : m_pWords(pWords) {
+    Guesses::Guesses(Words *pWords) : m_pWords(pWords), m_iWrongGuesses(0) {
     }
 
     Guesses::~Guesses() {
@@ -17,12 +17,24 @@ namespace NordicArts {
         bool bReturn = m_pWords->checkLetter(cLetter);
         if (bReturn) {
             m_vCorrectLetters.insert(m_vCorrectLetters.begin(), cLetter);
+        } else {
+            m_iWrongGuesses++;
         }
 
-        //printIt(m_sWord.cWord);
-        //printIt(bReturn);
-        //printIt(cLetter);
-
         return bReturn;
+    }
+
+    int Guesses::wrongGuesses() const {
+        return m_iWrongGuesses;
+    }
+
+    bool Guesses::completedWord() const {
+        bool bCompleted = false;
+
+        if (m_vCorrectLetters.size() == m_pWords->wordLength()) {
+            bCompleted = true;
+        }
+
+        return bCompleted;
     }
 };
