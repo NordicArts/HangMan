@@ -4,6 +4,9 @@ cmake_minimum_required(VERSION 2.8)
 # Project Name
 project(HangMan)
 
+SET (CMAKE_C_COMPILER "/usr/bin/clang")
+SET (CMAKE_CXX_COMPILER "/usr/bin/clang++")
+
 # C++11
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11 -m64")
 
@@ -47,9 +50,20 @@ include_directories(${Hang}/Guesses)
 list(APPEND GameHeaders ${Hang}/Guesses/Guesses.hpp)
 list(APPEND GameSources ${Hang}/Guesses/Guesses.cpp)
 
-# SDL
-#find_package(SDL REQUIRED)
-#include_directories(${SDL_INCLUDE_DIR})
+# SMFL
+add_subdirectory(${Hang}/lib/SMFL)
+include_directories(${Hang}/lib/SMFL)
+link_directories(${Hang}/lib/SMFL)
+
+
+#Find Cmake files Needed Here for SFGUI Below
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${Hang}/lib/Modules")
+
+# SFGUI
+add_subdirectory(${Hang}/lib/SFGUI)
+include_directories(${Hang}/lib/SFGUI)
+link_directories(${Hang}/lib/SFGUI)
+
 
 # Boost
 find_package(Boost COMPONENTS locale REQUIRED)
@@ -69,3 +83,5 @@ set_target_properties(HangMan PROPERTIES OUTPUT_NAME "Hangman.app")
 #target_link_libraries(HangMan ${SDL_LIBRARIES})
 target_link_libraries(HangMan NordicOS)
 target_link_libraries(HangMan ${Boost_LIBRARIES})
+target_link_libraries(HangMan ${Smfl_LIBRARIES})
+target_link_libraries(HangMan ${Sfgui_LIBRARIES})

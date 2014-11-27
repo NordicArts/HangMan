@@ -1,3 +1,9 @@
 [submodule "Hang/NordicOS"]
 	path = Hang/NordicOS
 	url = git@github.com:NordicArts/NordicOS.git
+[submodule "Hang/lib/SMFL"]
+	path = Hang/lib/SMFL
+	url = https://github.com/LaurentGomila/SFML.git
+[submodule "Hang/lib/SFGUI"]
+	path = Hang/lib/SFGUI
+	url = https://github.com/TankOs/SFGUI.git
