@@ -14,8 +14,8 @@ clear
 if [ -z "$rebuild" ]; then
     sh cleaner.sh
 fi
-git pull --recurse-submodules
-git submodule foreach git pull origin master
+git submodule update --recursive --init
+#git submodule foreach git pull origin master
 cmake .
 make
 
