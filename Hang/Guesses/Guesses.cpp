@@ -11,14 +11,29 @@ namespace NordicArts {
 
     bool Guesses::doGuess(std::string cLetter) {
         cLetter                 = NordicOS::toUpper(cLetter);
+        bool bAlreadyDone       = false;
+        bool bReturn            = false;
 
-        m_vLettersGuessed.insert(m_vLettersGuessed.begin(), cLetter);
+        // check if letter is already guessed
+        for (auto letter : m_vLettersGuessed) {
+            if (cLetter == letter) {
+                bAlreadyDone = true;
+            }
+        }
 
-        bool bReturn = m_pWords->checkLetter(cLetter);
-        if (bReturn) {
-            m_vCorrectLetters.insert(m_vCorrectLetters.begin(), cLetter);
+        // its not in list, do rest of process
+        if (!bAlreadyDone) {
+            m_vLettersGuessed.insert(m_vLettersGuessed.begin(), cLetter);
+    
+            bReturn = m_pWords->checkLetter(cLetter);
+            if (bReturn) {
+                m_vCorrectLetters.insert(m_vCorrectLetters.begin(), cLetter);
+            } else {
+                m_vWrongLetters.insert(m_vWrongLetters.begin(), cLetter);
+                m_iWrongGuesses++;
+            }
         } else {
-            m_iWrongGuesses++;
+            return true;
         }
 
         return bReturn;
@@ -36,5 +51,36 @@ namespace NordicArts {
         }
 
         return bCompleted;
+    }
+
+    void Guesses::displayLetters() const {
+        // Display Wrong Letters
+        std::cout << "Wrong Letters: " << std::endl;
+        for (auto letter : m_vWrongLetters) {
+            std::cout << " " << letter << ", ";
+        }
+        std::cout << std::endl;
+    }
+
+    void Guesses::displayGuessWordSpaces() const {
+        std::string cLetter;
+        bool        bFound;
+        WordStruct  sWord = m_pWords->getWord();
+
+        for (int i = 0; i < sWord.iLetters; i++) {
+            bFound = false;
+            for (auto correctLetter : m_vCorrectLetters) {
+                if (correctLetter == sWord.vLetters[i]) {
+                    cLetter = correctLetter;
+                    bFound = true;
+                }
+            }
+            if (bFound) {
+                std::cout << " " << sWord.vLetters[i];
+            } else {
+                std::cout << " _";
+            }
+        }
+        std::cout << std::endl;
     }
 };

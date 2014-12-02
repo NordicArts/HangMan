@@ -71,10 +71,6 @@ namespace NordicArts {
         std::string cWord = NordicOS::toUpper(m_sPickedWord.cWord);
         cLetter           = NordicOS::toUpper(cLetter);
 
-        printIt(m_sPickedWord.cWord);
-        printIt(cWord);
-        printIt(cLetter);
-        
         bool bReturn = false;
 
         for(std::string::size_type i = 0; i < cWord.size(); ++i) {
@@ -123,8 +119,25 @@ namespace NordicArts {
         return m_sPickedWord;
     }
 
+    WordStruct Words::getWord() {
+        return m_sPickedWord;
+    }
+
     std::string Words::getPickedWord() const {
         return m_sPickedWord.cWord;
+    }
+
+    std::vector<std::string> Words::splitWord(std::string cWord) {
+        std::vector<std::string> vReturn;
+        std::string cLetter;
+
+        for (auto letter : cWord) {
+            cLetter = NordicOS::getString(letter);
+
+            vReturn.insert(vReturn.end(), cLetter);
+        }
+
+        return vReturn;
     }
 
     void Words::parseFile() {
@@ -142,8 +155,10 @@ namespace NordicArts {
                 int iLevel          = wordObj.second.get<int>("level");
                 int iLetters        = wordObj.second.get<int>("letters");
 
-                WordStruct sWords   = WordStruct(iLetters, iLevel, NordicOS::toUpper(cWord));
-                m_vWords.insert(m_vWords.begin(), sWords);
+                WordStruct sWord    = WordStruct(iLetters, iLevel, NordicOS::toUpper(cWord));
+                sWord.vLetters      = splitWord(cWord);
+
+                m_vWords.insert(m_vWords.begin(), sWord);
             }
         }
     }

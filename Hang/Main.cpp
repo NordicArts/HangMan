@@ -41,20 +41,26 @@ namespace NordicArts {
         // DeadMan
         DeadMan  oDead;
         DeadMan *pDead = &oDead;
+
+        // Display letters in word
+        pGuess->displayGuessWordSpaces();
         
         while (true) {
             // Do Guess
             std::cout << "Guess Letter:" << std::endl;
             getline(std::cin, cInput);
-            if (pGuess->doGuess(cInput)) {
-                std::cout << "Yey" << std::endl;
-            } else {
+            if (!pGuess->doGuess(cInput)) {
                 pPlayer->decrementLife();
-                std::cout << "Nope" << std::endl;
             }
 
             // Get the Wrong Guesses
             pDead->doLife(pGuess->wrongGuesses());
+
+            // Display the Letters guessed
+            pGuess->displayLetters();
+
+            // Display number of letters in word
+            pGuess->displayGuessWordSpaces();
 
             // Run out of lives
             if (!pPlayer->alive()) {
@@ -66,49 +72,9 @@ namespace NordicArts {
                 break;
             }
         }
-
-        printIt(pGuess->wrongGuesses());
-
-/*
-      DeadMan oDead;
-      DeadMan *pDead = &oDead;
-
-      pDead->life11();
-      pDead->life10();
-      pDead->life9();
-      pDead->life8();
-      pDead->life7();
-      pDead->life6();
-      pDead->life5();
-      pDead->life4();
-      pDead->life3();
-      pDead->life2();
-      pDead->life1();
-      pDead->dead();
-*/
-
-      if (pWords->checkLetter("A")) { std::cout << "A exists" << std::endl; }
-      if (pWords->checkLetter("Z")) {
-          std::cout << "Z exists" << std::endl;
-      } else {
-          std::cout << "Z doesn't exist" << std::endl;
-      }
-
-      //pDead->loopDead();
-
-      std::cout << std::endl << NordicOS::getBuildNumber() << std::endl;
-
-        // Show Player Name
-        //printIt(pPlayer->getName());
-
-        // Get Word
-        //printIt(sWord.cWord);
-
-        // Letters
-        //printIt(sWord.iLetters);
-
-      return EXIT_SUCCESS;
-  }
+        
+        return EXIT_SUCCESS;
+    }
 };
 
 int main() {

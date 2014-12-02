@@ -18,7 +18,7 @@ namespace NordicArts {
 
         std::string cWord;
         
-        std::vector<std::string> cLetters;
+        std::vector<std::string> vLetters;
 
         WordStruct() {}
         WordStruct(int letters, int level, std::string word) : iLetters(letters), iLevel(level), cWord(word) {}
@@ -48,6 +48,7 @@ namespace NordicArts {
         bool checkLetter(std::string cLetter);
 
         WordStruct getWord(int iLevel);
+        WordStruct getWord();
     
         std::string getPickedWord() const;
 
@@ -58,6 +59,8 @@ namespace NordicArts {
         void parseFile();
 
         std::vector<WordStruct> getLevelWords(int iLevel) const;
+    
+        std::vector<std::string> splitWord(std::string cWord);
     };
 }
 

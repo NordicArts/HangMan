@@ -12,6 +12,7 @@ namespace NordicArts {
     private:
         std::vector<std::string> m_vLettersGuessed;
         std::vector<std::string> m_vCorrectLetters;
+        std::vector<std::string> m_vWrongLetters;
         
         Words      *m_pWords = nullptr;
 
@@ -26,6 +27,9 @@ namespace NordicArts {
         bool completedWord() const;
 
         int wrongGuesses() const;
+
+        void displayLetters() const;
+        void displayGuessWordSpaces() const;
 
     protected:
     private:
